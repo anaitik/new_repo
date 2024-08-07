@@ -20,12 +20,8 @@ jobs:
           node-version: '18.x'
       - name: Install Dependencies
         run: npm install
-      - name: Build Project
-        run: npm run build
-      - name: List files before uploading artifact
-        run: ls -R ./dist
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: app
-          path: ./dist # Ensure this is the correct path to your build artifacts
+          path: . # Upload the entire project directory
