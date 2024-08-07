@@ -21,11 +21,11 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Build Project
-        run: npm run build # Ensure this step generates your build artifacts
+        run: npm run build
       - name: List files before uploading artifact
-        run: ls -R ./
+        run: ls -R ./dist
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: app
-          path: ./ # Adjust this to the path of your build artifacts if different
+          path: ./dist # Ensure this is the correct path to your build artifacts
