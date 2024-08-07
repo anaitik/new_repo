@@ -1,12 +1,15 @@
-name: Deploy to Azure App Service
+name: CI
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
@@ -17,10 +20,10 @@ jobs:
           node-version: '18.x'
       - name: Install Dependencies
         run: npm install
-      - name: Deploy to Azure App Service
-        uses: azure/webapps-deploy@v2
+      - name: Run Tests
+        run: npm test # Assuming you have a test script in your package.json
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
         with:
-          app-name: fuka-chan-seperate-cicd
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: .
-
+          name: app
+          path: . # Upload the entire project directory
