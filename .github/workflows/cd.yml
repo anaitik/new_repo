@@ -19,11 +19,6 @@ jobs:
           node-version: '18.x'
       - name: Install Dependencies
         run: npm install
-      - name: Download Artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: app
-          path: .
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v2
         with:
