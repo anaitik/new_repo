@@ -34,4 +34,4 @@ jobs:
         uses: hmarr/approve-action@v2
         with:
           custom-message: 'Approve deployment to production?'
-          reviewers: 'your-github-username'
+          reviewers: 'anaitik'
