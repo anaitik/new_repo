@@ -1,10 +1,16 @@
 const path = require('path');
 
 module.exports = {
-  entry: './index.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
-  },
-  // other configurations...
+    // Your existing configuration
+    resolve: {
+        fallback: {
+            "fs": false,
+            "path": require.resolve("path-browserify"),
+            "crypto": require.resolve("crypto-browserify"),
+            "stream": require.resolve("stream-browserify"),
+            "zlib": require.resolve("browserify-zlib"),
+            "querystring": require.resolve("querystring-es3"),
+        },
+    },
+    // Other configurations
 };
