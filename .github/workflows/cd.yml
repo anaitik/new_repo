@@ -23,4 +23,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: fuka-chan-seperate-cicd
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           images: <your-registry-name>.azurecr.io/fuka-chan-seperate-cicd:${{ github.sha }}
